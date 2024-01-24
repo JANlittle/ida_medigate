@@ -14,7 +14,7 @@ from .. import cpp_utils, utils
 
 
 logging.basicConfig(
-    filename="/tmp/cpp_plugin.log",
+    filename="./cpp_plugin.log",
     filemode="a",
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",

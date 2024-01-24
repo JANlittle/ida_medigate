@@ -188,7 +188,7 @@ def add_to_struct(
 def set_func_name(func_ea, func_name):
     counter = 0
     new_name = func_name
-    while not ida_name.set_name(func_ea, new_name):
+    while not ida_name.set_name(func_ea, new_name, ida_name.SN_FORCE):
         new_name = func_name + "_%d" % counter
         counter += 1
     return new_name
@@ -459,7 +459,7 @@ def force_make_struct(ea, struct_name):
 def set_name_retry(ea, name, name_func=ida_name.set_name, max_attempts=100):
     i = 0
     suggested_name = name
-    while not name_func(ea, suggested_name):
+    while not name_func(ea, suggested_name, ida_name.SN_FORCE):
         suggested_name = name + "_" + str(i)
         i += 1
         if i == max_attempts:
